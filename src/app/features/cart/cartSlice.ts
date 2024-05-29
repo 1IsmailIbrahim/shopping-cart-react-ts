@@ -16,7 +16,7 @@ const initialState: CounterState = {
 };
 
 const cartSlice = createSlice({
-  name: "cart", // ** Attached with Store
+  name: "cart",
   initialState,
   reducers: {
     addItemToCart: (state, actionPayload: PayloadAction<IProduct>) => {

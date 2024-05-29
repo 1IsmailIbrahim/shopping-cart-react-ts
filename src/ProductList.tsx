@@ -1,4 +1,5 @@
 import ProductCard from "./components/ProductCard";
+import ProductSkeleton from "./components/ui/ProductSkeleton";
 import useCustomQuery from "./hooks/useCustomQuery";
 import { IProduct } from "./interface";
 
@@ -8,7 +9,16 @@ const ProductList = () => {
     url: `/products?limit=20&skip=10&select=title,price,thumbnail`,
   });
 
-  if (isLoading) return <h3>Loading...</h3>;
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 p-2 rounded-md">
+        {Array.from({ length: 8 }, (_, idx) => (
+          <ProductSkeleton key={idx} />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 p-2 rounded-md">
       {data.products.map((product: IProduct) => (
