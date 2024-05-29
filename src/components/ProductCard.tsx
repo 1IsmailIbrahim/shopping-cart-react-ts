@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <div className="mt-2 mb-5 flex items-center justify-between">
             <p>
               <span className="text-3xl font-bold text-gray-900">${price}</span>
-              <span className="text-sm text-gray-500 line-through">$1299</span>
+              <span className="text-sm text-gray-500 line-through">$79</span>
             </p>
           </div>
           <Button fullWidth onClick={() => dispatch(addItemToCart(product))}>

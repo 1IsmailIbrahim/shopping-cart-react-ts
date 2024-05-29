@@ -9,7 +9,7 @@ interface ProductsState {
   error: null;
 }
 
-export const getProductList = createAsyncThunk(
+export const getProductListAsyncThunk = createAsyncThunk(
   "products/getProductList",
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
@@ -35,22 +35,14 @@ const productsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getProductList.pending, (state) => {
+    builder.addCase(getProductListAsyncThunk.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(
-      getProductList.fulfilled,
+      getProductListAsyncThunk.fulfilled,
       (state, action: PayloadAction<IProduct[]>) => {
         state.loading = false;
         state.data = action.payload;
-      }
-    );
-    builder.addCase(
-      getProductList.rejected,
-      (state, action: PayloadAction<null>) => {
-        state.loading = false;
-        state.data = [];
-        state.error = action.payload;
       }
     );
   },

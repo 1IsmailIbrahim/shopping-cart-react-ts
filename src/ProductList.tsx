@@ -1,19 +1,13 @@
 import ProductCard from "./components/ProductCard";
 import { IProduct } from "./interface";
-import { useAppDispatch } from "./app/store";
-import { getProductList, productsSelector } from "./app/products/productsSlice";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+
 import ProductSkeleton from "./components/ui/ProductSkeleton";
+import { useGetProductListQuery } from "./app/products/productsSlice";
 
 const ProductList = () => {
-  const dispatch = useAppDispatch();
-  const { data, loading } = useSelector(productsSelector);
-  useEffect(() => {
-    dispatch(getProductList());
-  }, [dispatch]);
+  const { isLoading, data } = useGetProductListQuery({});
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 p-2 rounded-md">
         {Array.from({ length: 8 }, (_, idx) => (
