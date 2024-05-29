@@ -13,9 +13,9 @@ const Navbar = () => {
           to="/"
           className="flex items-center whitespace-nowrap text-2xl font-bold"
         >
-          <div className="text-white flex items-start">
+          <div className="text-white flex items-center">
             <ShoppingCartIcon />
-            Elimr
+            <span>Elimr</span>
           </div>
         </Link>
         <input type="checkbox" className="peer hidden" id="navbar-open" />
