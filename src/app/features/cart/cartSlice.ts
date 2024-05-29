@@ -7,11 +7,11 @@ import {
 } from "../../../utils/functions";
 import { RootState } from "../../store";
 
-interface CounterState {
+interface CartItemsState {
   cartItems: IProduct[];
 }
 
-const initialState: CounterState = {
+const initialState: CartItemsState = {
   cartItems: [],
 };
 
