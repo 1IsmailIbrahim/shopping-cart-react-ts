@@ -8,7 +8,7 @@ export const productsApiSlice = createApi({
     getProductList: builder.query({
       query: () => {
         return {
-          url: "/products?limit=30&skip=15&select=title,price,thumbnail",
+          url: "/products?limit=61&skip=20&select=title,price,thumbnail",
         };
       },
     }),
